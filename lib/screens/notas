@@ -1,3 +1,6 @@
+
+//EL CODIGO DE AQUI PARA ABJO ES PARA VER EL FUNCIONAMIENTO DE LAS CAMISETAS
+
 import 'package:flutter/material.dart';
 import 'package:navbar_app/screens/home_screen.dart';
 
@@ -28,6 +31,9 @@ class MainApp extends StatelessWidget {
 }
 
 
+
+
+//EL CODIGO DE AQUI PARA ABJO ES PARA VER LA APLICACION DE DEMSAMEX
 
 
 import 'package:flutter/material.dart';

@@ -1,27 +1,139 @@
 import 'package:flutter/material.dart';
-import 'package:navbar_app/screens/home_screen.dart';
+//import 'package:navbar_app/screens/custom_screen.dart';
+import 'demsamex/bombas.dart';
+import 'demsamex/coples.dart';
+import 'demsamex/sellos.dart';
+import 'demsamex/motores.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MuestrarioApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class MuestrarioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Demsamex",
-            style: TextStyle(color: Colors.white),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              "Demsamex",
+              style: TextStyle(color: Colors.white),
+            ),
+            centerTitle: true,
+            backgroundColor: Color.fromARGB(255, 98, 183, 204),
           ),
-          centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 98, 183, 204),
+          body: GridView.count(crossAxisCount: 2, children: <Widget>[
+            Card(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Builder(builder: (context) {
+                      return ElevatedButton(
+                        child: Text('Sellos Mecánicos'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Sellos()),
+                          );
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Builder(builder: (context) {
+                      return ElevatedButton(
+                        child: Text('Acoplamientos Flexibles'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Coples()),
+                          );
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Builder(builder: (context) {
+                      return ElevatedButton(
+                        child: Text('Bombas'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Bombas()),
+                          );
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Builder(builder: (context) {
+                      return ElevatedButton(
+                        child: Text('Motores'),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Motores()),
+                          );
+                        },
+                      );
+                    }),
+                  ],
+                ),
+              ),
+            ),
+          ]),
+        ));
+  }
+}
+
+class Muestra extends StatelessWidget {
+  final Widget child;
+  final String text;
+
+  const Muestra({
+    Key? key,
+    required this.child,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              this.child,
+              SizedBox(height: 10),
+              Text('holashdjashdkajsdhkajsdha', textAlign: TextAlign.center),
+            ],
+          ),
         ),
-        body: const HomeScreen(),
       ),
     );
   }
